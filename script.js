@@ -47,6 +47,9 @@ function returnWeatherForecast(cityName) {
     })
 };
 
+returnCurrentWeather("Toronto");
+returnWeatherForecast("Toronto");
+
 $("#submitCity").click(function() {
     event.preventDefault();
     let cityName = $("#cityInput").val();
