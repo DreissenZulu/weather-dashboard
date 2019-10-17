@@ -1,0 +1,17 @@
+const apiKey = "0765d126b0f6a7eb158764d733ae5823";
+var currWeatherDiv = $("#currentWeather");
+var forecastDiv = $("#weatherForecast");
+
+function returnCurrentWeather(cityName) {
+    let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&APPID=${apiKey}`;
+
+    $.get(queryURL).then(function(response){
+        console.log(response);
+        currWeatherDiv.html(`
+        <h2>${response.name}</h2>
+        <p>Temperature: ${(response.main.temp - 273.15).toFixed(1)} &#176;C</p>
+        <p>Humidity: ${response.main.humidity}%</p>
+        <p>Wind Speed: ${response.wind.speed} m/s</p>
+        `)
+    })
+};
