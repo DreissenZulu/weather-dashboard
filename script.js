@@ -1,6 +1,15 @@
 const apiKey = "0765d126b0f6a7eb158764d733ae5823";
 var currWeatherDiv = $("#currentWeather");
 var forecastDiv = $("#weatherForecast");
+var citiesArray;
+
+if (localStorage.getItem("localWeatherSearches")) {
+    citiesArray = JSON.parse(localStorage.getItem("localWeatherSearches"));
+    writeSearchHistory(citiesArray);
+} else {
+    citiesArray = [];
+};
+
 
 function returnCurrentWeather(cityName) {
     let queryURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${apiKey}`;
@@ -74,19 +83,29 @@ function returnUVIndex(coordinates) {
     })
 }
 
-
 function createHistoryButton(cityName) {
+    // Check if the button exists in history, and if it does, exit the function
     var citySearch = cityName.trim();
     var buttonCheck = $(`#previousSearch > BUTTON[value='${citySearch}']`);
     if (buttonCheck.length == 1) {
       return;
     }
     
-    $("#previousSearch").append(`
+    $("#previousSearch").prepend(`
     <button class="btn btn-light cityHistoryBtn" value='${cityName}'>${cityName}</button>
-  `);
+    `);
+
+    citiesArray.push(cityName);
+    localStorage.setItem("localWeatherSearches", JSON.stringify(citiesArray));
 }
 
+function writeSearchHistory(array) {
+    $.each(array, function(i) {
+        createHistoryButton(array[i]);
+    })
+}
+
+// Get a deafult weather search
 returnCurrentWeather("Toronto");
 returnWeatherForecast("Toronto");
 
