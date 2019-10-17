@@ -21,6 +21,7 @@ h4 {
 
 .btn-group-vertical {
     width: 100%;
+    display: inline-block;
 }
 
 .btn-light {
