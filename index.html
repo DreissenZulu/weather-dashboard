@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+        <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 searchColumn">
+                <form>
+                    <h3>Search for a City:</h3>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="cityInput" placeholder="Enter City">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="submitCity">Go</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="previousSearch">
+
+                </div>
+
+            </div>
+
+            <div class="col-md-9 weatherInfo">
+                <div id="currentWeather">
+                    <h2>Current Weather Here</h2>
+                </div>
+                <div id="weatherForecast">
+                    <h3>5-Day Forecast:</h3>
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="card bg-primary">
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="card text-white bg-primary">
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="card text-white bg-primary">
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="card text-white bg-primary">
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="card text-white bg-primary">
+                                <div class="card-body">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
