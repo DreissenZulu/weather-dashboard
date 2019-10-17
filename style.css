@@ -1,0 +1,18 @@
+.searchColumn {
+    background-color: #eee;
+}
+
+h2, h3 {
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1300px;
+}
+
+#currentWeather {
+    border: solid 1px rgba(0,0,0,.125);
+    border-radius: 0.3rem;
+    margin: 15px 0 15px 0;
+    padding: 15px;
+}
