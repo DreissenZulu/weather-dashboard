@@ -15,6 +15,10 @@ h4 {
     max-width: 1300px;
 }
 
+.bg-primary, .input-group {
+    margin-bottom: 10px;
+}
+
 .card-body {
     padding: 0.75rem;
     padding-bottom: 0;
