@@ -74,12 +74,25 @@ function returnUVIndex(coordinates) {
     })
 }
 
+function createHistoryButton(cityName) {
+    var citySearch = cityName.trim();
+    var buttonCheck = $(`#previousSearch > BUTTON[value='${citySearch}']`);
+    if (buttonCheck.length == 1) {
+      return;
+    }
+    
+    $("#previousSearch").append(`
+    <button class="btn btn-light" value='${cityName}'>${cityName}</button>
+  `);
+}
+
 returnCurrentWeather("Toronto");
 returnWeatherForecast("Toronto");
 
 $("#submitCity").click(function() {
     event.preventDefault();
     let cityName = $("#cityInput").val();
+    createHistoryButton(cityName);
     returnCurrentWeather(cityName);
     returnWeatherForecast(cityName);
 });
