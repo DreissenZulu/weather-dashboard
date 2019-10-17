@@ -91,12 +91,14 @@ function createHistoryButton(cityName) {
       return;
     }
     
+    if (!citiesArray.includes(cityName)){
+        citiesArray.push(cityName);
+        localStorage.setItem("localWeatherSearches", JSON.stringify(citiesArray));
+    }
+
     $("#previousSearch").prepend(`
     <button class="btn btn-light cityHistoryBtn" value='${cityName}'>${cityName}</button>
     `);
-
-    citiesArray.push(cityName);
-    localStorage.setItem("localWeatherSearches", JSON.stringify(citiesArray));
 }
 
 function writeSearchHistory(array) {
