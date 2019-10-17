@@ -15,7 +15,7 @@ function returnCurrentWeather(cityName) {
         <p>Humidity: ${response.main.humidity}%</p>
         <p>Wind Speed: ${response.wind.speed} m/s</p>
         `, returnUVIndex(response.coord))
-
+        createHistoryButton(response.name);
     })
 };
 
@@ -93,7 +93,6 @@ returnWeatherForecast("Toronto");
 $("#submitCity").click(function() {
     event.preventDefault();
     let cityName = $("#cityInput").val();
-    createHistoryButton(cityName);
     returnCurrentWeather(cityName);
     returnWeatherForecast(cityName);
 });
