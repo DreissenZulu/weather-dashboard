@@ -55,8 +55,22 @@ function returnUVIndex(coordinates) {
 
     $.get(queryURL).then(function(response){
         let currUVIndex = response.value;
-        console.log(response.value)
-        currWeatherDiv.append(`<p>${currUVIndex}</p>`);
+        let uvSeverity = "green";
+        let textColour = "white"
+        //Change UV background based on severity
+        //Also change text colour for readability
+        if (currUVIndex >= 11) {
+            uvSeverity = "purple";
+        } else if (currUVIndex >= 8) {
+            uvSeverity = "red";
+        } else if (currUVIndex >= 6) {
+            uvSeverity = "orange";
+            textColour = "black"
+        } else if (currUVIndex >= 3) {
+            uvSeverity = "yellow";
+            textColour = "black"
+        }
+        currWeatherDiv.append(`<p>UV Index: <span class="text-${textColour} uvPadding" style="background-color: ${uvSeverity};">${currUVIndex}</span></p>`);
     })
 }
 
@@ -68,4 +82,4 @@ $("#submitCity").click(function() {
     let cityName = $("#cityInput").val();
     returnCurrentWeather(cityName);
     returnWeatherForecast(cityName);
-})
+});
