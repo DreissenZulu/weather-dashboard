@@ -19,6 +19,14 @@ h4 {
     margin-bottom: 10px;
 }
 
+.btn-group-vertical {
+    width: 100%;
+}
+
+.btn-light {
+    text-align: left;
+}
+
 .uvPadding {
     padding: 7px;
     border-radius: 0.3rem;
