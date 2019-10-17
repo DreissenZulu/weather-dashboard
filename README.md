@@ -9,3 +9,6 @@ I started by dividing the main task into smaller tasks, as outlined below:
 4. Create a button that does the same thing as steps 2 and 3 for the weather in that city again
 
 In this approach I started with a functionality focus first, then I worked on the styling. Or well, that's what I'd like to say but I ended up developing the HTML/CSS skeleton first anyway.
+
+## Challenges
+The major challenge in this assignment was getting the 5 day forecast properly using the Openweather API. The 5 day weather call returns the forecast in intervals of three hours, up to 5 days past the current date. This means the array has more data to iterate through than needed. To pick out just one value from each day I used a condition to check for the forecast at a certain time (noon) each day, writing only that data to HTML.
