@@ -46,4 +46,12 @@ h4 {
 
 #previousSearch {
     margin-bottom: 15px;
+    max-height: 408px;
+    overflow: auto;
+}
+
+@media (max-width:768px) {
+    #previousSearch {
+        max-height: 152px;
+    }
 }
