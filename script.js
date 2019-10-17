@@ -8,13 +8,14 @@ function returnCurrentWeather(cityName) {
     $.get(queryURL).then(function(response){
         let currTime = new Date(response.dt*1000);
         let weatherIcon = `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
-        
+
         currWeatherDiv.html(`
         <h2>${response.name}, ${response.sys.country} (${currTime.getMonth()}/${currTime.getDate()}/${currTime.getFullYear()})<img src=${weatherIcon} height="70px"></h2>
         <p>Temperature: ${response.main.temp} &#176;C</p>
         <p>Humidity: ${response.main.humidity}%</p>
         <p>Wind Speed: ${response.wind.speed} m/s</p>
-        `)
+        `, returnUVIndex(response.coord))
+
     })
 };
 
@@ -46,6 +47,18 @@ function returnWeatherForecast(cityName) {
         })
     })
 };
+
+// The current UV index is collected at the same time as the current weather
+// by making use of the searched city's returned coordinates
+function returnUVIndex(coordinates) {
+    let queryURL = `http://api.openweathermap.org/data/2.5/uvi?lat=${coordinates.lat}&lon=${coordinates.lon}&APPID=${apiKey}`;
+
+    $.get(queryURL).then(function(response){
+        let currUVIndex = response.value;
+        console.log(response.value)
+        currWeatherDiv.append(`<p>${currUVIndex}</p>`);
+    })
+}
 
 returnCurrentWeather("Toronto");
 returnWeatherForecast("Toronto");
