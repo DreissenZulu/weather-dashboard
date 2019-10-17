@@ -74,6 +74,7 @@ function returnUVIndex(coordinates) {
     })
 }
 
+
 function createHistoryButton(cityName) {
     var citySearch = cityName.trim();
     var buttonCheck = $(`#previousSearch > BUTTON[value='${citySearch}']`);
@@ -82,7 +83,7 @@ function createHistoryButton(cityName) {
     }
     
     $("#previousSearch").append(`
-    <button class="btn btn-light" value='${cityName}'>${cityName}</button>
+    <button class="btn btn-light cityHistoryBtn" value='${cityName}'>${cityName}</button>
   `);
 }
 
@@ -96,3 +97,9 @@ $("#submitCity").click(function() {
     returnCurrentWeather(cityName);
     returnWeatherForecast(cityName);
 });
+
+$("#previousSearch").click(function() {
+    let cityName = event.target.value;
+    returnCurrentWeather(cityName);
+    returnWeatherForecast(cityName);
+})
